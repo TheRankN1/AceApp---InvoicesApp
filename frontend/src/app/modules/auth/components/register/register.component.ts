@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 import { AuthServices } from '../../services/auth.services';
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'ace-register',
@@ -7,14 +13,24 @@ import { AuthServices } from '../../services/auth.services';
   styleUrls: ['register.component.scss'],
 })
 export class RegisterComponent {
-  public username: string = '';
-  public fullName: string = '';
-  public email: string = '';
-  public password: string = '';
-  constructor(private authServices: AuthServices) {}
+  public registerFormGroup: FormGroup;
+
+  constructor(private authServices: AuthServices, private fb: FormBuilder) {
+    this.registerFormGroup = this.buildFormGroup();
+  }
+
+  public buildFormGroup() {
+    return this.fb.group({
+      username: this.fb.control('', [Validators.required]),
+      fullName: this.fb.control('', [Validators.required]),
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      password: this.fb.control('', [Validators.required]),
+    });
+  }
+
   public register() {
     this.authServices
-      .register(this.username, this.fullName, this.email, this.password)
+      .register(this.registerFormGroup.value)
       .subscribe((response) => {
         console.log(response);
       });
