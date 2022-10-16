@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthRoutesModule } from './modules/auth/auth.routes';
 import { AuthModule } from './modules/auth/auth.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { AuthModule } from './modules/auth/auth.module';
     FormsModule,
     HttpClientModule,
     AuthRoutesModule,
+    DashboardModule,
     AuthModule,
   ],
   declarations: [AppComponent],

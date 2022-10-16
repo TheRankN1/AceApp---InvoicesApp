@@ -1,0 +1,60 @@
+@import 'src/app/shared/scss/colors';
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .search-section {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 70px;
+      height: 70px;
+      cursor:pointer;
+    }
+
+    .search {
+      display: flex;
+      background: $color-grey-010;
+      border: 1px solid $color-grey-020;
+      border-radius: 16px;
+      padding: 12px;
+      gap: 12px;
+
+      width: 400px;
+
+      input {
+        border: none;
+        cursor:pointer;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      i {
+        font-size: 14px;
+        cursor:pointer;
+      }
+    }
+  }
+
+  .notification {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor:pointer;
+    }
+
+    i {
+      font-size: 20px;
+      cursor:pointer;
+    }
+  }
+}
