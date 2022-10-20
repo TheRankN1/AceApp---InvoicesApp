@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthRoutesModule } from './modules/auth/auth.routes';
 import { AuthModule } from './modules/auth/auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { AppRoutesModule } from './app.routes';
 
 @NgModule({
   imports: [
@@ -16,6 +17,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AuthRoutesModule,
     DashboardModule,
     AuthModule,
+    AppRoutesModule,
+    AuthRoutesModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],

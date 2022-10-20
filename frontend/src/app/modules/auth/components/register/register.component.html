@@ -1,6 +1,8 @@
 <form action="" [formGroup]="registerFormGroup">
   <p class="title">Register to <span>Ace</span></p>
-  <p class="redirect">Already have an account ? Go to <span>login</span></p>
+  <a class="redirect" [routerLink]="['/login']"
+    >Already have an account? <span> Go to Login !</span></a
+  >
   <div class="input-box">
     <span>Username</span>
     <input formControlName="username" type="text" placeholder="Username" />

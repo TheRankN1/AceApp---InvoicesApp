@@ -1,3 +1,5 @@
+@import "src/app/shared/scss/colors";
+
 
 form {
   display: flex;
@@ -25,6 +27,8 @@ form {
     margin-bottom: 20px;
     margin-top: 0;
     padding: 0;
+    color:black;
+    text-decoration: none;
 
     span {
       text-decoration: underline;
