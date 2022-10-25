@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'ace-register',
+  selector: 'app-register',
   templateUrl: 'register.component.html',
   styleUrls: ['register.component.scss'],
 })

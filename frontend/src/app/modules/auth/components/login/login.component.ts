@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'ace-login',
+  selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.scss'],
 })

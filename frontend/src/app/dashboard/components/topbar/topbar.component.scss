@@ -28,6 +28,7 @@ nav {
       input {
         border: none;
         cursor:pointer;
+        background: transparent;
         &:focus {
           outline: none;
         }
@@ -44,6 +45,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding-right: 12px;
 
     img {
       width: 35px;
