@@ -1,2 +1,8 @@
-<app-topbar></app-topbar>
-<app-sidenav></app-sidenav>
+<div class="dashboard">
+  <app-topbar></app-topbar>
+  <div class="la2" style="display: flex">
+    <app-sidenav></app-sidenav>
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>
