@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+  // {
+  //   path : '**',
+  //   component ; "TO DO HERE"
+  //
+  // }
 ];
 
 @NgModule({
