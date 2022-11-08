@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   public loginFormGroup: FormGroup;
   public token: String = '';
+
   constructor(
     private authService: AuthServices,
     private fb: FormBuilder,
@@ -27,16 +28,16 @@ export class LoginComponent {
   }
 
   public login() {
-    this.authService.login(this.loginFormGroup.value).subscribe(
-      (response: any) => {
+    this.authService.login(this.loginFormGroup.value).subscribe({
+      next: (response: any) => {
         this.token = response;
         console.log(this.token);
         console.log('Ai fost logat cu success!!');
         this.router.navigate(['/dashboard']);
       },
-      (err) => {
+      error: (err) => {
         console.log(err);
-      }
-    );
+      },
+    });
   }
 }

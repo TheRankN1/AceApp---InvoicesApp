@@ -1,8 +1,21 @@
-.dashboard{
-font-family: Poppins;
-  app-footer{
+.dashboard {
+  font-family: Poppins;
+
+  app-footer {
     position: fixed;
     width: 100%;
     bottom: 10px;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    app-sidenav{
+      width: 500px;
+    }
+   .router-wrapper{
+     width: 100% ;
+   }
+
   }
 }

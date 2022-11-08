@@ -9,7 +9,10 @@
   </div>
   <div class="input-box">
     <span>Password</span>
-    <input formControlName="password" type="text" placeholder="Password" />
+    <input formControlName="password" type="password" placeholder="Password" />
   </div>
-  <button (click)="login()">Login</button>
+  <button (click)="login()">
+    <!--    [attr.disabled]="loginFormGroup.invalid || null"-->
+    Login
+  </button>
 </form>

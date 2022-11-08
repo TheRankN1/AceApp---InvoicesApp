@@ -1,0 +1,32 @@
+@import '../../../shared/scss/colors';
+
+.container {
+  .table-head {
+    flex:1;
+    display: flex;
+
+
+    .head-cell {
+      flex:1;
+      padding: 8px;
+      border-bottom: 1px solid $color-grey-020;
+    }
+  }
+
+  .row {
+    display: flex;
+    &:nth-child(odd){
+      background: $color-grey-020;
+    }
+
+    .cell {
+      flex:1;
+      padding: 8px;
+      &.yes{
+        color: $color-green-010;
+        font-weight: bold;
+      }
+    }
+  }
+
+}
