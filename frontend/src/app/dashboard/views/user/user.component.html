@@ -7,22 +7,15 @@
     <div class="head-cell">isAdmin</div>
     <div class="head-cell">isActive</div>
   </div>
-  <div class="row">
-    <div class="cell">TheRank</div>
-    <div class="cell">Petrut Poenaru</div>
-    <div class="cell yes">Yes</div>
-    <div class="cell yes">Yes</div>
-  </div>
-  <div class="row">
-    <div class="cell">LeagueOfRapeni</div>
-    <div class="cell">Talon</div>
-    <div class="cell yes">Yes</div>
-    <div class="cell yes">Yes</div>
-  </div>
-  <div class="row">
-    <div class="cell">BostanBostan</div>
-    <div class="cell">la2lei</div>
-    <div class="cell yes">Yes</div>
-    <div class="cell yes">Yes</div>
-  </div>
+  <ng-container *ngIf="users$ | async as users">
+    <div *ngFor="let user of users" class="row">
+      <div class="cell">{{ user.username }}</div>
+      <div class="cell">{{ user.fullName }}</div>
+      <div class="cell yes" *ngIf="user.isActive == true; else no">Yes</div>
+      <ng-template #no class="no cell"
+        ><div class="no cell">no</div></ng-template
+      >
+      <div class="cell yes" *ngIf="user.isAdmin == true; else no">Yes</div>
+    </div>
+  </ng-container>
 </div>
