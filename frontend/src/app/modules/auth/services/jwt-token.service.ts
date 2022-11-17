@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
-
+import { CurrentUserInterface } from '../../../shared/interfaces/current-user.interface';
 const AUTH_DATA_KEY = 'userProfile';
 const ACCESS_TOKEN_KEY = 'accessToken';
 
@@ -20,6 +20,10 @@ export class JWTTokenService {
     this._accessToken = token;
   }
 
+  public isTokenOnLocalStorage(): boolean {
+    return !!localStorage.getItem(ACCESS_TOKEN_KEY);
+  }
+
   public initializeToken() {
     const accessToken = localStorage.getItem(ACCESS_TOKEN_KEY);
 
@@ -28,13 +32,14 @@ export class JWTTokenService {
     }
   }
 
-  public setCurrentUser(accessToken: any) {
+  public setCurrentUser(accessToken: string) {
+    console.log(accessToken);
     this.accessToken = accessToken;
     localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
     localStorage.setItem(AUTH_DATA_KEY, JSON.stringify(this.getUser()));
   }
 
-  public getUser() {
+  public getUser(): CurrentUserInterface {
     return jwt_decode(this._accessToken);
   }
 

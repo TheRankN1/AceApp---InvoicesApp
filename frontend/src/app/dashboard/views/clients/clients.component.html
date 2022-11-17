@@ -1,1 +1,24 @@
-<h1>clients works!</h1>
+<form action="" [formGroup]="clientsFormGroup">
+  <input type="text" placeholder="name" formControlName="name" />
+  <select name="" id="entity" formControlName="entity">
+    <option value="Individual">Individual</option>
+    <option value="Legal-Person">Legal-Person</option>
+  </select>
+  <input type="text" placeholder="cui" formControlName="cui" />
+  <input type="text" placeholder="cnp" formControlName="cnp" />
+  <input type="text" placeholder="address" formControlName="address" />
+  <input type="text" placeholder="city" formControlName="city" />
+  <input type="text" placeholder="country" formControlName="country" />
+  <input
+    type="text"
+    placeholder="contactPersonName"
+    formControlName="contactPersonName"
+  />
+  <input type="text" placeholder="phone" formControlName="phone" />
+  <input type="text" placeholder="email" formControlName="email" />
+  <input type="text" placeholder="website" formControlName="website" />
+</form>
+<button (click)="createClients()"></button>
+<pre
+  >{{ currentUser | json }}
+</pre>

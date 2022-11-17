@@ -13,6 +13,9 @@ app.use(require("cors")());
 const authRoutes = require("./app/modules/auth/auth.routes");
 app.use("/api", authRoutes);
 
+const clientsRoutes = require("./app/modules/clients/clients.routes");
+app.use("/api", clientsRoutes);
+
 mongoose.connect(MONGO_URL, function (err) {
   if (err) {
     console.log("Mongo error!", err);

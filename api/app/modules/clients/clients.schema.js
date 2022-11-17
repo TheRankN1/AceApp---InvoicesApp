@@ -20,5 +20,5 @@ const clientsSchema = mongoose.Schema({
   userId: String,
 });
 
-const ClientsCollection = mongoose.model("Clients", clientsSchema);
-module.exports = ClientsCollection;
+const clientsCollection = mongoose.model("clients", clientsSchema);
+module.exports = clientsCollection;

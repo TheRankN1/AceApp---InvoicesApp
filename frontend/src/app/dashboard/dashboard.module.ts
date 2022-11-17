@@ -12,6 +12,8 @@ import { OffersComponent } from './views/offers/offers.component';
 import { LogsComponent } from './views/logs/logs.component';
 import { ConfigComponent } from './views/config/config.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from '../modules/auth/components/login/login.component';
 
 const COMPONENTS = [
   TopbarComponent,
@@ -21,11 +23,20 @@ const COMPONENTS = [
   ClientsComponent,
 ];
 
-const MODULES = [CommonModule, DashboardRoutesModule];
+const MODULES = [CommonModule, DashboardRoutesModule, ReactiveFormsModule];
 
 @NgModule({
-  declarations: [COMPONENTS, CompaniesComponent, InvoicesComponent, OffersComponent, LogsComponent, ConfigComponent, FooterComponent],
+  declarations: [
+    COMPONENTS,
+    CompaniesComponent,
+    InvoicesComponent,
+    OffersComponent,
+    LogsComponent,
+    ConfigComponent,
+    FooterComponent,
+  ],
   imports: [MODULES],
+  providers: [LoginComponent],
   exports: [TopbarComponent],
 })
 export class DashboardModule {}

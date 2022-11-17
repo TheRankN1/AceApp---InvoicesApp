@@ -1,5 +1,5 @@
 const ENTITY = {
   INDIVIDUAL: "Individual",
-  LEGAL_PERSON: "Legal person",
+  LEGAL_PERSON: "Legal-Person",
 };
 module.exports = ENTITY;
