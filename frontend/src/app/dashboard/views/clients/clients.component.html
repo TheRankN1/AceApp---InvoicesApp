@@ -1,4 +1,6 @@
-<form action="" [formGroup]="clientsFormGroup">
+<h1>Clients</h1>
+
+<form [formGroup]="clientsFormGroup" [class.visible]="visible == true">
   <input type="text" placeholder="name" formControlName="name" />
   <select name="" id="entity" formControlName="entity">
     <option value="Individual">Individual</option>
@@ -17,8 +19,50 @@
   <input type="text" placeholder="phone" formControlName="phone" />
   <input type="text" placeholder="email" formControlName="email" />
   <input type="text" placeholder="website" formControlName="website" />
+  <button (click)="createClients()">Create client !</button>
 </form>
-<button (click)="createClients()"></button>
-<pre
-  >{{ currentUser | json }}
-</pre>
+
+<div class="table" [class.visible]="visible == false">
+  <div class="table-head">
+    <div class="head-cell">Name</div>
+    <div class="head-cell">Entity</div>
+    <div class="head-cell">Cui/Cnp</div>
+    <div class="head-cell">City</div>
+    <div class="head-cell">Country</div>
+    <div class="head-cell">Zipcode</div>
+    <div class="head-cell">Phone</div>
+    <div class="head-cell">Email</div>
+    <div class="head-cell">Website</div>
+  </div>
+  <ng-container *ngIf="clients$ | async as clients">
+    <div *ngFor="let client of clients" class="row">
+      <div class="cell">{{ client.name }}</div>
+      <div class="cell">{{ client.entity }}</div>
+      <div *ngIf="client.entity == Individual; else cui" class="cell">
+        {{ client.cnp }}
+      </div>
+      <ng-template #cui
+        ><div class="cell">{{ client.cui }}</div></ng-template
+      >
+      <div class="cell">{{ client.city }}</div>
+      <div class="cell">{{ client.country }}</div>
+      <div class="cell">{{ client.zipcode }}</div>
+      <div *ngIf="client.phone; else no" class="cell icon">
+        <i class="demo-icon icon-phone"></i>
+      </div>
+      <div *ngIf="client.email; else no" class="cell icon">
+        <i class="demo-icon icon-mail-alt"></i>
+      </div>
+      <div *ngIf="client.website; else no" class="cell icon">
+        <i class="demo-icon icon-network"></i>
+      </div>
+      <ng-template #no><div class="X-sing cell">X</div></ng-template>
+    </div>
+  </ng-container>
+</div>
+<button (click)="toggleVisible()" [class.visible]="visible == true">
+  Read clients !
+</button>
+<button (click)="toggleVisible()" [class.visible]="visible == false">
+  Create clients !
+</button>

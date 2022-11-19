@@ -2,8 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ClientsService } from '../../services/clients.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { JWTTokenService } from '../../../modules/auth/services/jwt-token.service';
-import jwt_decode from 'jwt-decode';
 import { CurrentUserInterface } from '../../../shared/interfaces/current-user.interface';
+import { Observable } from 'rxjs';
+import { ClientInterface } from '../../../shared/interfaces/client.interface';
 
 @Component({
   selector: 'app-clients',
@@ -12,8 +13,11 @@ import { CurrentUserInterface } from '../../../shared/interfaces/current-user.in
 })
 export class ClientsComponent implements OnInit {
   public clientsFormGroup: FormGroup;
-  public clients: any[] = [];
   public currentUser!: CurrentUserInterface;
+  public visible = false;
+  public clients$: Observable<ClientInterface[]> =
+    this.clientsService.readClients();
+  public Individual = 'Individual';
 
   constructor(
     private clientsService: ClientsService,
@@ -44,11 +48,8 @@ export class ClientsComponent implements OnInit {
     }));
   }
 
-  public viewClients() {
-    this.clientsService.readClients().subscribe((response: any) => {
-      this.clients = response;
-      console.log(this.clients);
-    });
+  public toggleVisible() {
+    this.visible = !this.visible;
   }
 
   public createClients() {

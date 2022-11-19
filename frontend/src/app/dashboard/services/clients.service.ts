@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ClientInterface } from '../../shared/interfaces/client.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ClientsService {
@@ -13,8 +14,10 @@ export class ClientsService {
     );
   }
 
-  public readClients() {
-    return this.http.get('http://localhost:3000/api/readAllClients');
+  public readClients(): Observable<ClientInterface[]> {
+    return this.http.get<ClientInterface[]>(
+      'http://localhost:3000/api/readAllClients'
+    );
   }
 
   public readClientById(id: string) {
