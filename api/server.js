@@ -19,6 +19,9 @@ app.use("/api", clientsRoutes);
 const usersRoutes = require("./app/modules/user/user.routes");
 app.use("/api", usersRoutes);
 
+const featureRoutes = require("./app/modules/feature/feature.routes");
+app.use("/api", featureRoutes);
+
 mongoose.connect(MONGO_URL, function (err) {
   if (err) {
     console.log("Mongo error!", err);
