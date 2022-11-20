@@ -8,5 +8,4 @@ import { SidenavMock } from './sidenav.mock';
 })
 export class SidenavComponent {
   navData = SidenavMock;
-  collapsed = true;
 }

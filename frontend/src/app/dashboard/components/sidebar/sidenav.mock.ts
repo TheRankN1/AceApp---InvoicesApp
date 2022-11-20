@@ -10,6 +10,11 @@ export const SidenavMock = [
     router: '/dashboard/clients',
   },
   {
+    name: 'Features',
+    icon: 'demo-icon icon-network',
+    router: '/dashboard/features',
+  },
+  {
     name: 'Companies',
     icon: 'demo-icon icon-shopping-bag',
     router: '/dashboard/companies',

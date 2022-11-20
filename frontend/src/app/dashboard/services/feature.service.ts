@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { FeatureInterface } from '../../shared/interfaces/feature.interface';
 
 @Injectable({ providedIn: 'root' })
 export class featureService {
   constructor(public http: HttpClient) {}
 
-  public createFeature(body: any) {
-    this.http.post('http://localhost:3000/api/createFeature', body);
+  public createFeature(body: any): Observable<{ name: string }> {
+    return this.http.post<{ name: string }>(
+      'http://localhost:3000/api/createFeature',
+      body
+    );
   }
 
-  public readFeatures() {
-    this.http.get('http://localhost:3000/api/readFeatures');
+  public readFeatures(): Observable<FeatureInterface[]> {
+    return this.http.get<FeatureInterface[]>(
+      'http://localhost:3000/api/readFeatures'
+    );
   }
 
   public readFeaturesById(id: string) {

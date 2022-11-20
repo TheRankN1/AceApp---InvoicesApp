@@ -8,6 +8,7 @@ import { InvoicesComponent } from './views/invoices/invoices.component';
 import { OffersComponent } from './views/offers/offers.component';
 import { LogsComponent } from './views/logs/logs.component';
 import { ConfigComponent } from './views/config/config.component';
+import { FeaturesComponent } from './views/features/features.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'clients',
         component: ClientsComponent,
+      },
+      {
+        path: 'features',
+        component: FeaturesComponent,
       },
       {
         path: 'companies',

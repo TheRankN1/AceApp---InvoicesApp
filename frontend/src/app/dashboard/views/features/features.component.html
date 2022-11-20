@@ -1,0 +1,44 @@
+<h1>Features</h1>
+
+<form
+  action=""
+  [formGroup]="featureFormGroup"
+  [class.visible]="visible == true"
+>
+  <input type="text" placeholder="name" formControlName="name" />
+  <select name="" id="unit" formControlName="unit">
+    <option value="Piece">Piece</option>
+    <option value="Hour">Hour</option>
+    <option value="Day">Day</option>
+    <option value="Product">Product</option>
+  </select>
+  <input type="number" placeholder="price" formControlName="price" />
+  <select name="" id="currency" formControlName="currency">
+    <option value="Ron">Ron</option>
+    <option value="€">€</option>
+    <option value="$">$</option>
+  </select>
+  <button (click)="createFeature()">Create feature</button>
+</form>
+<div class="table" [class.visible]="visible == false">
+  <div class="table-head">
+    <div class="head-cell">Name</div>
+    <div class="head-cell">Unit</div>
+    <div class="head-cell">Price</div>
+    <div class="head-cell">Currency</div>
+  </div>
+  <ng-container *ngIf="feature$ | async as features">
+    <div *ngFor="let feature of features" class="row">
+      <div class="cell">{{ feature.name }}</div>
+      <div class="cell">{{ feature.unit }}</div>
+      <div class="cell">{{ feature.price }}</div>
+      <div class="cell">{{ feature.currency }}</div>
+    </div>
+  </ng-container>
+</div>
+<button (click)="toggleVisible()" [class.visible]="visible == true">
+  View Features !
+</button>
+<button (click)="toggleVisible()" [class.visible]="visible == false">
+  Create Features !
+</button>
