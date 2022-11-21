@@ -9,6 +9,7 @@ import { OffersComponent } from './views/offers/offers.component';
 import { LogsComponent } from './views/logs/logs.component';
 import { ConfigComponent } from './views/config/config.component';
 import { FeaturesComponent } from './views/features/features.component';
+import { ContractComponent } from './views/contract/contract.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
       {
         path: 'features',
         component: FeaturesComponent,
+      },
+      {
+        path: 'contract',
+        component: ContractComponent,
       },
       {
         path: 'companies',

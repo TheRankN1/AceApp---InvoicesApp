@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from '../modules/auth/components/login/login.component';
 import { FeaturesComponent } from './views/features/features.component';
+import { ContractComponent } from './views/contract/contract.component';
 
 const COMPONENTS = [
   TopbarComponent,
@@ -36,6 +37,7 @@ const MODULES = [CommonModule, DashboardRoutesModule, ReactiveFormsModule];
     ConfigComponent,
     FooterComponent,
     FeaturesComponent,
+    ContractComponent,
   ],
   imports: [MODULES],
   providers: [LoginComponent],
