@@ -1,1 +1,12 @@
-<p>contract works!</p>
+<div class="table">
+  <div class="table-head">
+    <div class="head-cell">No</div>
+    <div class="head-cell">Data</div>
+  </div>
+  <ng-container *ngIf="contract$ | async as contracts">
+    <div *ngFor="let contract of contracts" class="row">
+      <div class="cell">{{ contract.no }}</div>
+      <div class="cell">{{ contract.issuedAt }}</div>
+    </div>
+  </ng-container>
+</div>

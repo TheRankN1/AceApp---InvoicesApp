@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ContractService } from '../../services/contract.service';
 
 @Component({
   selector: 'app-contract',
   templateUrl: './contract.component.html',
-  styleUrls: ['./contract.component.scss']
+  styleUrls: ['./contract.component.scss'],
 })
-export class ContractComponent implements OnInit {
+export class ContractComponent {
+  public contract$ = this.contractService.getContracts();
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public contractService: ContractService) {}
 }
