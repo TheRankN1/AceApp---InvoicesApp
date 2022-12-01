@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const companySchema = mongoose.Schema({
+const CompanySchema = mongoose.Schema({
   companyName: String,
   ownerName: String,
   numberOfEmployees: Number,
@@ -11,5 +11,5 @@ const companySchema = mongoose.Schema({
   phone: String,
 });
 
-const CompanyCollection = mongoose.model("Company", companySchema);
+const CompanyCollection = mongoose.model("Company", CompanySchema);
 module.exports = CompanyCollection;

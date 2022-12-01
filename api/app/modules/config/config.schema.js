@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const CompanyInfo = require("/api/app/modules/company/company.schema");
+const CompanyInfo = require("../company/company.schema").schema;
 const ConfigSchema = mongoose.Schema({
   batchNumbers: String,
   issuedAt: {
@@ -18,5 +18,5 @@ const ConfigSchema = mongoose.Schema({
   company: CompanyInfo,
 });
 
-const ConfigCollection = mongoose.model("Contract", ConfigSchema);
+const ConfigCollection = mongoose.model("Config", ConfigSchema);
 module.exports = ConfigCollection;

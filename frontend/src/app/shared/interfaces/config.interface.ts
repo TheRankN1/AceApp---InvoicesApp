@@ -3,10 +3,7 @@ import { CompanyInterface } from './company.interface';
 export interface ConfigInterface {
   batchNumbers: string;
   issuedAt: Date;
-  defaultBatchNumber: {
-    type: string;
-    default: 'DEV';
-  };
+  defaultBatchNumber: string;
   iban: {
     ron: string;
     euro: string;
