@@ -1,15 +1,14 @@
 .sidenav {
-  font-family: Poppins;
   .sidenav-nav {
     list-style: none;
-    padding-left: 32px;
+    padding-left: var(--gigant);
 
     .sidenav-nav-item {
-      padding-top: 25px;
-      font-size:18px;
+      padding-top:  var(--mega);
+      font-size:var(--semi-huge);
       .sidenav-nav-link {
         display: flex;
-        gap:12px;
+        gap:var(--xl);
         align-items: center;
 
         color: black;

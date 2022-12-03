@@ -1,1 +1,12 @@
-<h1>config works!</h1>
+<h1>Config</h1>
+
+<form action="" [formGroup]="configFormGroup">
+  <input type="text" placeholder="batchNumber" formControlName="batchNumbers" />
+  <div class="iban">
+    <input type="text" placeholder="ron" formControlName="ron" />
+    <input type="text" placeholder="euro" formControlName="euro" />
+    <input type="text" placeholder="usd" formControlName="usd" />
+  </div>
+  <!--  company ?? cum scriu aici si de ce ?-->
+  <button (click)="createConfigs()"></button>
+</form>
