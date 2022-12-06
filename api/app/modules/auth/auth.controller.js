@@ -47,6 +47,7 @@ async function registerFn(userProps) {
     email: joi.string().min(7).max(25).required(),
     password: joi.string().min(4).required(),
     isAdmin: joi.optional(),
+    isActive: joi.optional(),
   });
 
   isSchemaValid(validateSchema, userProps);
@@ -71,9 +72,9 @@ async function registerFn(userProps) {
   return userProps;
 }
 async function loginFn(userProps) {
-  const { username, password, email } = userProps;
+  const { username, password } = userProps;
 
-  await validateProps(username, password, email);
+  await validateProps(username, password);
 
   const userWithCorrectCredentials = await UserCollection.findOne({
     username,
@@ -81,11 +82,10 @@ async function loginFn(userProps) {
 
   if (!userWithCorrectCredentials)
     throw new Error("Username or Password or Email incorrect!");
-
   const accessToken = generateToken(userWithCorrectCredentials.toObject());
   return { accessToken };
 
-  async function validateProps(username, password, email) {
+  async function validateProps(username, password) {
     const userFound = await UserCollection.findOne({ username }).select(
       "+password"
     );
