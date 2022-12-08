@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from '../modules/auth/components/login/login.component';
 import { FeaturesComponent } from './views/features/features.component';
 import { ContractComponent } from './views/contract/contract.component';
-
+import { MatButtonModule } from '@angular/material/button';
 const COMPONENTS = [
   TopbarComponent,
   DashboardComponent,
@@ -25,7 +25,12 @@ const COMPONENTS = [
   ClientsComponent,
 ];
 
-const MODULES = [CommonModule, DashboardRoutesModule, ReactiveFormsModule];
+const MODULES = [
+  CommonModule,
+  DashboardRoutesModule,
+  ReactiveFormsModule,
+  MatButtonModule,
+];
 
 @NgModule({
   declarations: [

@@ -9,6 +9,9 @@ import { AuthModule } from './modules/auth/auth.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutesModule } from './app.routes';
 
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -19,6 +22,8 @@ import { AppRoutesModule } from './app.routes';
     AuthModule,
     AppRoutesModule,
     AuthRoutesModule,
+    MatButtonModule,
+    MatDividerModule,
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
