@@ -1,28 +1,6 @@
 <h1>Clients</h1>
 
-<form [formGroup]="clientsFormGroup" [class.visible]="visible == true">
-  <input type="text" placeholder="name" formControlName="name" />
-  <select name="" id="entity" formControlName="entity">
-    <option value="Individual">Individual</option>
-    <option value="Legal-Person">Legal-Person</option>
-  </select>
-  <input type="text" placeholder="cui" formControlName="cui" />
-  <input type="text" placeholder="cnp" formControlName="cnp" />
-  <input type="text" placeholder="address" formControlName="address" />
-  <input type="text" placeholder="city" formControlName="city" />
-  <input type="text" placeholder="country" formControlName="country" />
-  <input
-    type="text"
-    placeholder="contactPersonName"
-    formControlName="contactPersonName"
-  />
-  <input type="text" placeholder="phone" formControlName="phone" />
-  <input type="text" placeholder="email" formControlName="email" />
-  <input type="text" placeholder="website" formControlName="website" />
-  <button (click)="createClients()">Create client !</button>
-</form>
-
-<div class="table" [class.visible]="visible == false">
+<div class="table">
   <div class="table-head">
     <div class="head-cell">Name</div>
     <div class="head-cell">Entity</div>
@@ -48,21 +26,16 @@
       <div class="cell">{{ client.country }}</div>
       <div class="cell">{{ client.zipcode }}</div>
       <div *ngIf="client.phone; else no" class="cell icon">
-        <i class="demo-icon icon-phone"></i>
+        <i class="demo-icon icon-newspaper"></i>
       </div>
       <div *ngIf="client.email; else no" class="cell icon">
-        <i class="demo-icon icon-mail-alt"></i>
+        <i class="demo-icon icon-lock"></i>
       </div>
       <div *ngIf="client.website; else no" class="cell icon">
-        <i class="demo-icon icon-network"></i>
+        <i class="demo-icon icon-monitor"></i>
       </div>
       <ng-template #no><div class="X-sing cell">X</div></ng-template>
     </div>
   </ng-container>
 </div>
-<button (click)="toggleVisible()" [class.visible]="visible == true">
-  Read clients !
-</button>
-<button (click)="toggleVisible()" [class.visible]="visible == false">
-  Create client !
-</button>
+<button mat-button color="primary" (click)="openDialog()">Primary</button>

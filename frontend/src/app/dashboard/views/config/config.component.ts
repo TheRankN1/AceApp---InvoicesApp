@@ -18,10 +18,11 @@ export class ConfigComponent {
   public formBuilder() {
     return (this.configFormGroup = this.fb.group({
       batchNumbers: this.fb.control(''),
-
-      ron: this.fb.control(''),
-      euro: this.fb.control(''),
-      usd: this.fb.control(''),
+      iban: this.fb.group({
+        ron: this.fb.control(''),
+        euro: this.fb.control(''),
+        usd: this.fb.control(''),
+      }),
 
       // company: this.fb.control(''),
     }));

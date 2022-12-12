@@ -27,6 +27,7 @@ export class ContractService {
       body
     );
   }
+  /* TO DO : VARIABILE pt localhost */
 
   public deleteContract(id: string) {
     return this.http.delete(`http://localhost:3000/api/createContract/${id}`);

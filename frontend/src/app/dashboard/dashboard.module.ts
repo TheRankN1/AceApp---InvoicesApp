@@ -17,12 +17,18 @@ import { LoginComponent } from '../modules/auth/components/login/login.component
 import { FeaturesComponent } from './views/features/features.component';
 import { ContractComponent } from './views/contract/contract.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ClientsFormComponent } from './forms/clients-form-component/client-form.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+
 const COMPONENTS = [
   TopbarComponent,
   DashboardComponent,
   SidenavComponent,
   UserComponent,
   ClientsComponent,
+  ClientsFormComponent,
 ];
 
 const MODULES = [
@@ -30,6 +36,7 @@ const MODULES = [
   DashboardRoutesModule,
   ReactiveFormsModule,
   MatButtonModule,
+  MatDialogModule,
 ];
 
 @NgModule({

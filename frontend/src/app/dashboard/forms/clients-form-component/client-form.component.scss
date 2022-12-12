@@ -1,0 +1,48 @@
+
+form {
+  display: none;
+  width: 400px;
+  gap: 25px;
+  &.visible{
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 16px;
+    border: 2px solid var(--color-grey-020);
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+
+  select {
+    padding: 6px 12px;
+    border-radius: 15px;
+    border: 2px solid var(--color-grey-020);
+  }
+
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 15px;
+    width: 200px;
+    padding: 7px;
+    border: none;
+
+    color: #fff;
+    background: var(--color-blue-010);
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+      opacity: 70%;
+    }
+  }
+}

@@ -11,11 +11,15 @@ import { AppRoutesModule } from './app.routes';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    CommonModule,
     HttpClientModule,
     AuthRoutesModule,
     DashboardModule,

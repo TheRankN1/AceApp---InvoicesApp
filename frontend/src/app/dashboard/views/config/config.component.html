@@ -2,7 +2,7 @@
 
 <form action="" [formGroup]="configFormGroup">
   <input type="text" placeholder="batchNumber" formControlName="batchNumbers" />
-  <div class="iban">
+  <div class="iban" formGroupName="iban">
     <input type="text" placeholder="ron" formControlName="ron" />
     <input type="text" placeholder="euro" formControlName="euro" />
     <input type="text" placeholder="usd" formControlName="usd" />
@@ -10,3 +10,4 @@
   <!--  company ?? cum scriu aici si de ce ?-->
   <button (click)="createConfigs()"></button>
 </form>
+<pre>{{ configFormGroup.value | json }}</pre>
