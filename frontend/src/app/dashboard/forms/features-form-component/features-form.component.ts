@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { featureService } from '../../services/feature.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ClientInterface } from '../../../shared/interfaces/client.interface';
+import { FeatureInterface } from '../../../shared/interfaces/feature.interface';
 
 @Component({
   selector: 'app-features-form',
@@ -10,8 +13,14 @@ import { featureService } from '../../services/feature.service';
 export class FeaturesFormComponent {
   public featureFormGroup: FormGroup;
 
-  constructor(public featureService: featureService, public fb: FormBuilder) {
+  constructor(
+    public featureService: featureService,
+    public fb: FormBuilder,
+    @Inject(MAT_DIALOG_DATA)
+    public data: { onEditMode: boolean; feature?: FeatureInterface }
+  ) {
     this.featureFormGroup = this.formBuilder();
+    this.patchForm();
   }
 
   public formBuilder() {
@@ -22,6 +31,22 @@ export class FeaturesFormComponent {
       currency: this.fb.control(''),
     }));
   }
+
+  private patchForm() {
+    if (!this.data.feature) {
+      return;
+    }
+
+    const feature = this.data.feature;
+
+    return this.featureFormGroup.patchValue({
+      name: feature.name,
+      unit: feature.unit,
+      price: feature.price,
+      currency: feature.currency,
+    });
+  }
+
   public createFeature() {
     this.featureService
       .createFeature(this.featureFormGroup.value)

@@ -6,6 +6,7 @@
     <div class="head-cell">Unit</div>
     <div class="head-cell">Price</div>
     <div class="head-cell">Currency</div>
+    <div class="head-cell">Edit feature</div>
   </div>
   <ng-container *ngIf="feature$ | async as features">
     <div *ngFor="let feature of features" class="row">
@@ -13,6 +14,9 @@
       <div class="cell">{{ feature.unit }}</div>
       <div class="cell">{{ feature.price }}</div>
       <div class="cell">{{ feature.currency }}</div>
+      <div class="cell icon">
+        <i (click)="editFeature(feature)" class="demo-icon icon-monitor"></i>
+      </div>
     </div>
   </ng-container>
 </div>

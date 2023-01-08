@@ -12,5 +12,10 @@
     <option value="€">€</option>
     <option value="$">$</option>
   </select>
-  <button (click)="createFeature()">Create feature</button>
+  <button *ngIf="data.onEditMode == true" (click)="createFeature()">
+    Edit feature
+  </button>
+  <button *ngIf="data.onEditMode == false" (click)="createFeature()">
+    Create feature
+  </button>
 </form>
