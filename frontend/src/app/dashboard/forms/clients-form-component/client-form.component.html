@@ -1,4 +1,7 @@
-<form [formGroup]="clientsFormGroup">
+<h1 *ngIf="data.onEditMode == true">On edit mode on</h1>
+<h1 *ngIf="data.onEditMode == false">Create mode on</h1>
+
+<form [formGroup]="clientFormGroup">
   <input type="text" placeholder="name" formControlName="name" />
   <select name="" id="entity" formControlName="entity">
     <option value="Individual">Individual</option>
@@ -17,5 +20,10 @@
   <input type="text" placeholder="phone" formControlName="phone" />
   <input type="text" placeholder="email" formControlName="email" />
   <input type="text" placeholder="website" formControlName="website" />
-  <button (click)="createClients()">Create client !</button>
+  <button *ngIf="data.onEditMode == true" (click)="onSaveClientsForm()">
+    Edit client !
+  </button>
+  <button *ngIf="data.onEditMode == false" (click)="createClients()">
+    Create client !
+  </button>
 </form>

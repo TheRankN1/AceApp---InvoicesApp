@@ -5,6 +5,8 @@ import { ClientInterface } from '../../shared/interfaces/client.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ClientsService {
+  public client!: ClientInterface;
+  public id = '';
   constructor(public http: HttpClient) {}
 
   public createClient(body: any): Observable<{ _id: string }> {
@@ -20,8 +22,10 @@ export class ClientsService {
     );
   }
 
-  public readClientById(id: string) {
-    return this.http.get(`http://localhost:3000/api/readClientById/${id}`);
+  public readClientById(ClientId: string): Observable<ClientInterface> {
+    return this.http.get<ClientInterface>(
+      `http://localhost:3000/api/readClientById/${ClientId}`
+    );
   }
 
   public updateClient(body: any, id: string) {

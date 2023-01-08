@@ -1,6 +1,7 @@
 import { CompanyInterface } from './company.interface';
 
 export interface ConfigInterface {
+  _id: string;
   batchNumbers: string;
   issuedAt: Date;
   defaultBatchNumber: string;

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CompanyInterface } from '../../../shared/interfaces/company.interface';
 import { ConfigService } from '../../services/config.service';
+import { Observable } from 'rxjs';
+import { ConfigInterface } from '../../../shared/interfaces/config.interface';
 
 @Component({
   selector: 'app-config',
@@ -10,6 +12,9 @@ import { ConfigService } from '../../services/config.service';
 })
 export class ConfigComponent {
   public configFormGroup: FormGroup;
+
+  public configs$: Observable<ConfigInterface[]> =
+    this.configService.getConfigs();
 
   constructor(private fb: FormBuilder, private configService: ConfigService) {
     this.configFormGroup = this.formBuilder();
@@ -24,7 +29,7 @@ export class ConfigComponent {
         usd: this.fb.control(''),
       }),
 
-      // company: this.fb.control(''),
+      company: this.fb.control(null),
     }));
   }
   public createConfigs() {

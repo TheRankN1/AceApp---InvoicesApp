@@ -7,7 +7,14 @@
     <input type="text" placeholder="euro" formControlName="euro" />
     <input type="text" placeholder="usd" formControlName="usd" />
   </div>
-  <!--  company ?? cum scriu aici si de ce ?-->
-  <button (click)="createConfigs()"></button>
+  <ng-container *ngIf="configs$ | async as configs">
+    <select formControlName="company">
+      <option [value]="null" disabled>Selecteaza config</option>
+      <option *ngFor="let config of configs" [value]="config._id">
+        {{ config.batchNumbers }}
+      </option>
+    </select>
+  </ng-container>
+  <button mat-raised-button (click)="createConfigs()">Create config</button>
 </form>
 <pre>{{ configFormGroup.value | json }}</pre>

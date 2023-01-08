@@ -21,6 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ClientsFormComponent } from './forms/clients-form-component/client-form.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { FeaturesFormComponent } from './forms/features-form-component/features-form.component';
+import { ContractFormComponent } from './forms/contract-form-component/contract-form.component';
 
 const COMPONENTS = [
   TopbarComponent,
@@ -29,6 +31,7 @@ const COMPONENTS = [
   UserComponent,
   ClientsComponent,
   ClientsFormComponent,
+  FeaturesFormComponent,
 ];
 
 const MODULES = [
@@ -50,6 +53,7 @@ const MODULES = [
     FooterComponent,
     FeaturesComponent,
     ContractComponent,
+    ContractFormComponent,
   ],
   imports: [MODULES],
   providers: [LoginComponent],

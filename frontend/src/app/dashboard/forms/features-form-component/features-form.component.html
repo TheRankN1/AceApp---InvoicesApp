@@ -1,0 +1,16 @@
+<form action="" [formGroup]="featureFormGroup">
+  <input type="text" placeholder="name" formControlName="name" />
+  <select name="" id="unit" formControlName="unit">
+    <option value="Piece">Piece</option>
+    <option value="Hour">Hour</option>
+    <option value="Day">Day</option>
+    <option value="Product">Product</option>
+  </select>
+  <input type="number" placeholder="price" formControlName="price" />
+  <select name="" id="currency" formControlName="currency">
+    <option value="Ron">Ron</option>
+    <option value="€">€</option>
+    <option value="$">$</option>
+  </select>
+  <button (click)="createFeature()">Create feature</button>
+</form>

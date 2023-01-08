@@ -14,9 +14,9 @@ export class ConfigService {
       body
     );
   }
-  public readConfigs(): Observable<ConfigInterface[]> {
+  public getConfigs(): Observable<ConfigInterface[]> {
     return this.http.get<ConfigInterface[]>(
-      'http://localhost:3000/api/getConfig'
+      'http://localhost:3000/api/getConfigs'
     );
   }
   public readConfigById(id: string): Observable<ConfigInterface> {
